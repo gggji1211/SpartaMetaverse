@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
+    public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTxet;
     public TextMeshProUGUI Restart;
     void Start()
     {
-        if (Restart == null)
-            Debug.LogError("æ»µ≈ ≥Œ¿Ãæﬂ");
-
-
 
         Restart.gameObject.SetActive(false);
     }
@@ -26,4 +24,11 @@ public class UiManager : MonoBehaviour
     {
         scoreTxet.text = score.ToString();
     }
+    public void ChangeToSampleScene()
+    {
+        GameManager.Instance.SaveScore(); 
+        SceneManager.LoadScene("SampleScene"); 
+    }
+    
+
 }
